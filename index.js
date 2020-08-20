@@ -11,6 +11,7 @@ const routes = {
   unmeta: '/unmeta',
   url: '/url',
   iframe: '/iframe',
+  stream: '/stream',
 };
 
 const getS = () => Math.floor(Math.random() * 10) + 1;
@@ -128,6 +129,30 @@ app.get(routes.iframe, (req, res) => {
 
   res.set('refresh', m);
   res.send(html);
+});
+
+app.get(routes.stream, (req, res) => {
+  console.log(routes.stream);
+  const s = getS();
+
+  res.write(`
+    <html>
+      <head>
+        <title>${routes.stream}</title>
+      </head>
+      <body>
+        Waiting for ${s}.
+  `);
+
+  var x = " ";
+  for (var i = 0; i < 1000; i++) {
+    x += " ";
+  }
+
+  setTimeout(() => {
+    res.write(`${x}<script>window.location.reload()</script>`);
+    res.end();
+  }, s * 1000);
 });
 
 app.get('/', (res, req) => {
