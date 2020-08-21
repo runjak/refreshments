@@ -5,12 +5,11 @@ const port = 3000;
 // https://en.wikipedia.org/wiki/Meta_refresh
 
 const routes = {
+  reload: '/reload',
+  iframe: '/iframe',
   meta: '/meta',
   refresh: '/refresh',
-  reload: '/reload',
   unmeta: '/unmeta',
-  url: '/url',
-  iframe: '/iframe',
   stream: '/stream',
 };
 
@@ -84,25 +83,6 @@ app.get(routes.unmeta, (req, res) => {
           document.querySelector('meta').remove();
           document.querySelector('script').remove();
         </script>
-      </head>
-      <body>
-        Waiting for ${s}.
-      </body>
-    </html>
-  `);
-});
-
-app.get(routes.url, (req, res) => {
-  console.log(routes.url);
-  const s = 1; // getS();
-  const m = `${s}; url=data:text/plain,You should not have been redirected here.`;
-  // const m = `${s}; url=javascript:alert("wat")`;
-
-  res.set('refresh', m);
-  res.send(`
-    <html>
-      <head>
-        <title>/url</title>
       </head>
       <body>
         Waiting for ${s}.
