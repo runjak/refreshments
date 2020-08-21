@@ -162,7 +162,7 @@ app.get('/', (res, req) => {
         <title>/</title>
       </head>
       <body>
-        Some refreshing eases here:
+        Some refreshing cases here:
         <ul>
           ${Object.values(routes).map(r => `<li><a href="${r}">${r}</a></li>`).join('')}
         </ul>
