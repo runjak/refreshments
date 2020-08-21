@@ -4,6 +4,26 @@ It's hot outside - make sure to stay hydrated!
 
 🍹🍸🍷🍵☕️🍺🍼🧃🧉🥃🥛🥤🍻🍾
 
+## What happens here
+
+This repo aims to be a small collection of cases to refresh pages after some time.
+
+### Using docker 🐋
+
+To run locally using docker you can call:
+
+```bash
+docker run -p 3000:3000 --rm runjak/refreshments
+```
+
+Afterwards visit [localhost:3000](http://localhost:3000) to see a list of the various refreshments.
+
+### Using node
+
+* Clone repo
+* `yarn install` or `npm install`
+* `node index.js`
+
 ## Odd ends
 
 An attempt to list some things that did not work, but were interesting anyway:
