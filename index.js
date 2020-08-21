@@ -113,22 +113,19 @@ app.get(routes.url, (req, res) => {
 
 app.get(routes.iframe, (req, res) => {
   console.log(routes.iframe);
-  const s = 1; // getS();
-  const html = `
+  const s = getS();
+
+  res.send(`
     <html>
       <head>
-        <title>/iframe</title>
+        <title>/${routes.iframe}</title>
       </head>
       <body>
-        <iframe src="http://localhost:${port}${routes.iframe}" />
+        Waiting for ${s}.
+        <iframe style="display:none;" srcdoc="<script>setTimeout(() => {window.top.location.reload()}, ${s * 1000})</script>" />
       </body>
     </html>
-  `;
-
-  const m = `${s}; url=data:text/html,${encodeURIComponent(html)}`;
-
-  res.set('refresh', m);
-  res.send(html);
+  `);
 });
 
 app.get(routes.stream, (req, res) => {
