@@ -8,6 +8,9 @@ It's hot outside - make sure to stay hydrated!
 
 This repo aims to be a small collection of cases to refresh pages after some time.
 
+There is a wonderful list on how to do this in JavaScript [over here](https://www.phpied.com/files/location-location/location-location.html).
+This repo aims not to be a big collection of achieving the same thing in JavaScript (which is cool on its own).
+
 ### Using docker 🐋
 
 To run locally using docker you can call:
